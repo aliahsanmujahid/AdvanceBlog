@@ -1,0 +1,52 @@
+{% extends 'back/master.html'%}
+{% load staticfiles %}
+
+{% block mainblock %}
+
+   <!-- Datatables Header -->
+   <div class="content-header">
+    <div class="header-section">
+        <h1>
+            <i class="fa fa-table"></i>News Add<br><small>HTML tables can become fully dynamic with cool features!</small>
+        </h1>
+    </div>
+</div>
+<ul class="breadcrumb breadcrumb-top">
+    <li>News</li>
+    <li><a href="/panel/news/add/">ADD</a></li>
+</ul>
+<!-- END Datatables Header -->
+
+
+
+
+                        
+<div class="row">
+    <div class="col-md-12">
+        <!-- Basic Form Elements Block -->
+        <div class="block">
+            <!-- Basic Form Elements Title -->
+            <div class="block-title">
+ 
+                <h2><strong>Error</strong>{{ error }} </h2>
+            </div>
+            <!-- END Form Elements Title -->
+
+        </div>
+        <!-- END Basic Form Elements Block -->
+    </div>
+
+</div>
+                
+
+{% endblock %}
+
+
+
+{% block footerblock %}
+
+        <!-- Load and execute javascript code used only in this page -->
+        <script src="{% static 'back/js/pages/tablesDatatables.js'%}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{% endblock %}

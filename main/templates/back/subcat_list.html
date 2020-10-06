@@ -1,0 +1,72 @@
+{% extends 'back/master.html'%}
+{% load staticfiles %}
+
+{% block mainblock %}
+
+   <!-- Datatables Header -->
+   <div class="content-header">
+    <div class="header-section">
+        <h1>
+            <i class="fa fa-table"></i>SubCatagory List<br><small>HTML tables can become fully dynamic with cool features!</small>
+        </h1>
+    </div>
+</div>
+<ul class="breadcrumb breadcrumb-top">
+    <li>SubCatagory</li>
+    <li><a href="/panel/catagory/list/">List</a></li>
+</ul>
+<!-- END Datatables Header -->
+
+                        <!-- Datatables Content -->
+                        <div class="block full">
+                            <div class="block-title">
+                                <h2><strong>SubCatagory</strong> integration</h2>
+                            </div>
+                            <p><a href="https://datatables.net/" target="_blank">DataTables</a> is a plug-in for the Jquery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table. It is integrated with template's design and it offers many features such as on-the-fly filtering and variable length pagination.</p>
+
+                            <div class="table-responsive">
+                                <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">ID</th>
+                                        
+                                            <th>Title</th>
+                                            <th>Catagory</th>
+
+                                            <th class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        {% for cc in subcat %}
+                                        <tr>
+                                            <td class="text-center">{{ cc.pk }}</td>
+                                           
+                                            <th>{{ cc.name }}</th>
+                                            <th>{{ cc.catname }}</th>
+                                            <td class="text-center">
+                                                <div class="btn-group">
+                                                    <a href="" data-toggle="tooltip" title="Edit" class="btn btn-xs btn-default"><i class="fa fa-pencil"></i>Edit</a>
+                                                    <a href="" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i>Delete</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END Datatables Content -->
+
+{% endblock %}
+
+
+
+{% block footerblock %}
+
+        <!-- Load and execute javascript code used only in this page -->
+        <script src="{% static 'back/js/pages/tablesDatatables.js'%}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{% endblock %}
